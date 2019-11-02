@@ -1,0 +1,147 @@
+/*written by gitanjali*/
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	float m1,m2,m3,m,v,v1,v2,b,w1,w2,w3,cg1,cg2,cg3;
+	float x,e,pv_toe,sigma,sigmal,pv_heel;
+	float h1,h2,h3,h4,h5,b1,b2,b3,tau1,tau2;
+	clrscr();
+	printf("\n Refer fig of dam for inputing the data\n:");
+	printf("\n Enter value of h1:-");
+	scanf("%f",&h1);
+	printf("\n Enter value of h2:-");
+	scanf("%f",&h2);
+	printf("\n Enter value of h3:-");
+	scanf("%f",&h3);
+	printf("\n Enter value of h4:-");
+	scanf("%f",&h4);
+	printf("\n Enter value of h5:-");
+	scanf("%f",&h5);
+	printf("\n Enter value of b1:-");
+	scanf("%f",&b1);
+	printf("\n Enter value of b2:-");
+	scanf("%f",&b2);
+	printf("\n Enter value of b3:-");
+	scanf("%f",&b3);
+	w1=0.5*b1*h3*24*1;
+	w2=(h1+h2)*b2*24*1;
+	w3=0.5*h5*b3*24*1;
+	cg1=((2/3)*b1)+b2+b3;
+	cg2=(b2/2)+b3;
+	cg3=(1/3)*b3;
+	m1=w1*cg1;
+	m2=w2*cg2;
+	m3=w3*cg3;
+	printf("\ncase 1:When reservoir is empty& vertical earthquake forces acting downword\n:");
+	m=m1+m2+m3;
+	v1=w1+w2+w3;
+	v=v1+v2;
+	printf("\n summation of vertical forces with self wt of dam & earthuake forces=v=%f",v);
+	printf("\nSummation of moments=m=m1+m2+m3=%f",m);
+	x=m/v;
+	printf("\nx=%f",x);
+	b=b1+b2+b3;
+	e=(b/2)-x;
+	printf("\ne=%f",e);
+	if(e<(b/6))
+	printf("\n%f>%f,hence safe",e,(b/6));
+	else
+		printf("\n%f>%f,hence unsafe",e,(b/6));
+	pv_heel=(v/b)*(1+(6*e/b));
+	pv_toe=(v/b)*(1-(6*e/b));
+	printf("\n");
+	if(pv_heel<3000)
+	printf("\n Pv @ heel=%f<=3000; hence safe",pv_heel);
+	else
+	printf("\n Pv @ heel=%f>3000; hence unsafe",pv_heel);
+		if(pv_toe<420)
+	printf("\n Pv @ toe=%f<=420; hence safe",pv_toe);
+	else
+	printf("\n Pv @ toe=%f>420; hence unsafe",pv_toe);
+	printf("\n");
+	if((v/b)<3000)
+	printf("\n Average vertical stress=%f<3000; hence safe",(v/b));
+	else
+	printf("\n Average vertical stress=%f>3000; hence unsafe",(v/b));
+	printf("\n");
+	printf("\n Principle stresses:");
+	sigmal=pv_heel*(1+0.01);
+	if(sigmal<3000)
+	printf("\n\t at heel=%f KN/sq.m<3000; hence safe",sigmal);
+	else
+	printf("\n\t at heel=%f KN/sq.m>3000; hence unsafe",sigmal);
+	sigma=pv_toe*(1+0.49);
+	if(sigma<420)
+	printf("\n\t at toe=%f KN/sq.m<420; hence safe",sigma);
+	else
+	printf("\n\t at heel=%f KN/sq.m>420; hence unsafe",sigma);
+	printf("\n shear stresses:");
+	tau1=pv_heel*0.01;
+	if(tau1<3000)
+	printf("\n\t at heel=%f KN/sq.m<3000; hence safe",tau1);
+	else
+	printf("\n\t at heel=%f KN/sq.m>3000; hence safe",tau1);
+	tau2=pv_toe*0.49;
+	if(tau2<420)
+	printf("\n\t at heel=%f KN/sq.m<420; hence safe",tau2);
+	else
+	printf("\n\t at heel=%f KN/sq.m<420; hence safe",tau2);
+		printf("\ncase 2:When reservoir is empty& vertical earthquake forces acting upword\n:");
+	m=m1+m2+m3;
+	v1=w1+w2+w3;
+	v2=0.05*v1;
+	v=v1-v2;
+	printf("\n summation of vertical forces with self wt of dam & earthuake forces=v=%f",v);
+	printf("\nSummation of moments=m=m1+m2+m3=%f",m);
+	x=m/v;
+	printf("\nx=%f",x);
+	b=b1+b2+b3;
+	e=(b/2)-x;
+	printf("\ne=%f",e);
+	if(e<(b/6))
+	printf("\n%f>%f,hence safe",e,(b/6));
+	else
+		printf("\n%f>%f,hence unsafe",e,(b/6));
+	pv_heel=(v/b)*(1+(6*e/b));
+	pv_toe=(v/b)*(1-(6*e/b));
+	printf("\n");
+	if(pv_heel<3000)
+	printf("\n Pv @ heel=%f<=3000; hence safe",pv_heel);
+	else
+	printf("\n Pv @ heel=%f>3000; hence unsafe",pv_heel);
+		if(pv_toe<420)
+	printf("\n Pv @ toe=%f<=420; hence safe",pv_toe);
+	else
+	printf("\n Pv @ toe=%f>420; hence unsafe",pv_toe);
+	printf("\n");
+	if((v/b)<3000)
+	printf("\n Average vertical stress=%f<3000; hence safe",(v/b));
+	else
+	printf("\n Average vertical stress=%f>3000; hence unsafe",(v/b));
+	printf("\n");
+	printf("\n Principle stresses:");
+	sigmal=pv_heel*(1+0.01);
+	if(sigmal<3000)
+	printf("\n\t at heel=%f KN/sq.m<3000; hence safe",sigmal);
+	else
+	printf("\n\t at heel=%f KN/sq.m>3000; hence unsafe",sigmal);
+	sigma=pv_toe*(1+0.49);
+	if(sigma<420)
+	printf("\n\t at toe=%f KN/sq.m<420; hence safe",sigma);
+	else
+	printf("\n\t at heel=%f KN/sq.m>420; hence unsafe",sigma);
+	printf("\n shear stresses:");
+	tau1=pv_heel*0.01;
+	if(tau1<3000)
+	printf("\n\t at heel=%f KN/sq.m<3000; hence safe",tau1);
+	else
+	printf("\n\t at heel=%f KN/sq.m>3000; hence safe",tau1);
+	tau2=pv_toe*0.49;
+	if(tau2<420)
+	printf("\n\t at heel=%f KN/sq.m<420; hence safe",tau2);
+	else
+	printf("\n\t at heel=%f KN/sq.m<420; hence safe",tau2);
+	printf("\nWritten by Gitanjali Navpute");
+	getch();
+	}
