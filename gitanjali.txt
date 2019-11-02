@@ -1,4 +1,4 @@
-/*written by gitanjali*/
+/*written by kartik*/
 #include<stdio.h>
 #include<conio.h>
 void main()
@@ -142,6 +142,6 @@ void main()
 	printf("\n\t at heel=%f KN/sq.m<420; hence safe",tau2);
 	else
 	printf("\n\t at heel=%f KN/sq.m<420; hence safe",tau2);
-	printf("\nWritten by Gitanjali Navpute");
+	printf("\nWritten by Kartik Navpute");
 	getch();
 	}
